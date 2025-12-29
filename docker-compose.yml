@@ -1,0 +1,45 @@
+version: "3.9"
+
+services:
+  ubuntu20:
+    build:
+      context: .
+      dockerfile: ubuntu.Dockerfile
+      args:
+        UBUNTU_VERSION: "20.04"
+    container_name: ubuntu20
+    hostname: ubuntu20
+    ports:
+      - "2220:22"
+    networks:
+      - ansible_net
+
+  ubuntu22:
+    build:
+      context: .
+      dockerfile: ubuntu.Dockerfile
+      args:
+        UBUNTU_VERSION: "22.04"
+    container_name: ubuntu22
+    hostname: ubuntu22
+    ports:
+      - "2222:22"
+    networks:
+      - ansible_net
+
+  ubuntu24:
+    build:
+      context: .
+      dockerfile: ubuntu.Dockerfile
+      args:
+        UBUNTU_VERSION: "24.04"
+    container_name: ubuntu24
+    hostname: ubuntu24
+    ports:
+      - "2224:22"
+    networks:
+      - ansible_net
+
+networks:
+  ansible_net:
+    driver: bridge

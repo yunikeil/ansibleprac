@@ -1,0 +1,11 @@
+- name: Install and configure Nginx
+  hosts: ubuntu22
+  become: true
+  roles:
+    - nginx
+
+- name: Install and configure Apache
+  hosts: ubuntu24
+  become: true
+  roles:
+    - apache

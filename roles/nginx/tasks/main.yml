@@ -1,0 +1,11 @@
+- name: Install nginx
+  apt:
+    name: nginx
+    state: present
+    update_cache: true
+  notify: restart nginx
+
+- name: Deploy index page
+  template:
+    src: index.html.j2
+    dest: /var/www/html/index.html
